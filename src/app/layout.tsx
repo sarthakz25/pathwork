@@ -1,12 +1,17 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Pathwork",
-  description: "Find your dream job.",
+  title: {
+    default: "Pathwork",
+    template: "%s | Pathwork",
+  },
+  description: "Find your dream developer job.",
 };
 
 export default function RootLayout({
@@ -16,7 +21,11 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} min-w-[280px]`}>{children}</body>
+      <body className={`${inter.className} min-w-[280px]`}>
+        <Navbar />
+        {children}
+        <Footer />
+      </body>
     </html>
   );
 }
