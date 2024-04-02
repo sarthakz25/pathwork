@@ -25,7 +25,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="text-sm text-muted-foreground">
+        <div className="text-sm">
           <a
             href="https://github.com/sarthakz25"
             target="_blank"
