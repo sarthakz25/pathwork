@@ -57,7 +57,7 @@ export default async function Home({
       <div className="space-y-5 text-center">
         <H1>{getTitle(filteredValues)}</H1>
 
-        <p className="text-muted-foreground">Find your dream job.</p>
+        <p className="text-muted-foreground">Forge your career path</p>
       </div>
 
       <section className="flex flex-col gap-5 md:flex-row">

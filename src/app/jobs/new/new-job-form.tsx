@@ -20,6 +20,7 @@ import { X } from "lucide-react";
 import { Label } from "@/components/ui/label";
 import RichTextEditor from "@/components/rich-text-editor";
 import { draftToMarkdown } from "markdown-draft-js";
+import LoadingButton from "@/components/loading-button";
 
 export default function NewJobForm() {
   const form = useForm<CreateJobValues>({
@@ -43,10 +44,8 @@ export default function NewJobForm() {
   return (
     <main className="m-auto my-10 max-w-3xl space-y-10">
       <div className="space-y-5 text-center">
-        <H1>Find your perfect developer</H1>
-        <p className="text-muted-foreground">
-          Get your job posting seen by thousands of job seekers.
-        </p>
+        <H1>Unveil Elite Tech Talent</H1>
+        <p className="text-muted-foreground">Amplify your job reach exponentially</p>
       </div>
 
       <div className="space-y-6 rounded-lg border p-4">
@@ -74,7 +73,6 @@ export default function NewJobForm() {
                 </FormItem>
               )}
             />
-
             <FormField
               control={control}
               name="type"
@@ -97,7 +95,6 @@ export default function NewJobForm() {
                 </FormItem>
               )}
             />
-
             <FormField
               control={control}
               name="companyName"
@@ -111,7 +108,6 @@ export default function NewJobForm() {
                 </FormItem>
               )}
             />
-
             <FormField
               control={control}
               name="companyLogo"
@@ -133,7 +129,6 @@ export default function NewJobForm() {
                 </FormItem>
               )}
             />
-
             <FormField
               control={control}
               name="locationType"
@@ -141,7 +136,16 @@ export default function NewJobForm() {
                 <FormItem>
                   <FormLabel>Location</FormLabel>
                   <FormControl>
-                    <Select {...field} defaultValue="">
+                    <Select
+                      {...field}
+                      defaultValue=""
+                      onChange={(e) => {
+                        field.onChange(e);
+                        if (e.currentTarget.value === "Remote") {
+                          trigger("location");
+                        }
+                      }}
+                    >
                       <option value="" hidden>
                         Select an option
                       </option>
@@ -156,7 +160,6 @@ export default function NewJobForm() {
                 </FormItem>
               )}
             />
-
             <FormField
               control={control}
               name="location"
@@ -186,7 +189,6 @@ export default function NewJobForm() {
                 </FormItem>
               )}
             />
-
             <div className="space-y-2">
               <Label htmlFor="applicationEmail">How to apply</Label>
               <div className="flex justify-between">
@@ -210,7 +212,6 @@ export default function NewJobForm() {
                     </FormItem>
                   )}
                 />
-
                 <FormField
                   control={control}
                   name="applicationUrl"
@@ -233,7 +234,6 @@ export default function NewJobForm() {
                 />
               </div>
             </div>
-
             <FormField
               control={control}
               name="description"
@@ -244,7 +244,9 @@ export default function NewJobForm() {
                   </Label>
                   <FormControl>
                     <RichTextEditor
-                      onChange={(draft) => draftToMarkdown(draft)}
+                      onChange={(draft) =>
+                        field.onChange(draftToMarkdown(draft))
+                      }
                       ref={field.ref}
                     />
                   </FormControl>
@@ -252,7 +254,6 @@ export default function NewJobForm() {
                 </FormItem>
               )}
             />
-
             <FormField
               control={control}
               name="salary"
@@ -266,6 +267,9 @@ export default function NewJobForm() {
                 </FormItem>
               )}
             />
+            <LoadingButton type="submit" loading={isSubmitting}>
+              Submit
+            </LoadingButton>
           </form>
         </Form>
       </div>

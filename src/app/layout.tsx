@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     default: "Pathwork",
     template: "%s | Pathwork",
   },
-  description: "Find your dream developer job.",
+  description: "Forge your career path",
 };
 
 export default function RootLayout({

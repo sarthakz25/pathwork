@@ -8,7 +8,7 @@ export default function Footer() {
           <div className="space-y-2">
             <h3 className="text-xl font-semibold">Pathwork</h3>
             <p className="text-sm text-muted-foreground">
-              Connecting talents with opportunities
+              Crafting Professional Paths
             </p>
           </div>
 
@@ -20,16 +20,19 @@ export default function Footer() {
               Contact
             </Link>
             <Link href="/terms" className="hover:underline">
-              Terms of Service
-            </Link>
-            <Link href="/privacy" className="hover:underline">
-              Privacy Policy
+              Terms
             </Link>
           </div>
         </div>
 
-        <div className="text-center text-sm text-muted-foreground">
-          &copy; {new Date().getFullYear()} Pathwork, Inc. All rights reserved.
+        <div className="text-sm text-muted-foreground">
+          <a
+            href="https://github.com/sarthakz25"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            &copy; {new Date().getFullYear()} Sarthak Khandelwal
+          </a>
         </div>
       </div>
     </footer>
