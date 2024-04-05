@@ -15,13 +15,16 @@ async function filterJobs(formData: FormData) {
   // turn form values into js object
   const values = Object.fromEntries(formData.entries());
 
-  const { q, type, location, remote } = jobFilterSchema.parse(values);
+  const { q, type, location, remote, onsite, hybrid } =
+    jobFilterSchema.parse(values);
 
   const searchParams = new URLSearchParams({
     ...(q && { q: q.trim() }),
     ...(type && { type }),
     ...(location && { location }),
     ...(remote && { remote: "true" }),
+    ...(onsite && { onsite: "true" }),
+    ...(hybrid && { hybrid: "true" }),
   });
 
   redirect(`/?${searchParams.toString()}`);
@@ -45,7 +48,7 @@ export default async function JobFilterSidebar({
     )) as string[];
 
   return (
-    <aside className="top-5 h-fit rounded-lg border bg-background p-4 md:sticky md:w-[250px]">
+    <aside className="top-5 h-fit rounded-lg border bg-background p-4 md:sticky md:w-[265px]">
       <form action={filterJobs} key={JSON.stringify(defaultValues)}>
         <div className="space-y-5">
           <div className="flex flex-col gap-3">
@@ -57,7 +60,6 @@ export default async function JobFilterSidebar({
               defaultValue={defaultValues.q}
             />
           </div>
-
           <div className="flex flex-col gap-3">
             <Label htmlFor="type">Type</Label>
             <Select
@@ -73,7 +75,6 @@ export default async function JobFilterSidebar({
               ))}
             </Select>
           </div>
-
           <div className="flex flex-col gap-3">
             <Label htmlFor="location">Location</Label>
             <Select
@@ -89,18 +90,38 @@ export default async function JobFilterSidebar({
               ))}
             </Select>
           </div>
-
-          <div className="flex items-center gap-3">
-            <input
-              id="remote"
-              name="remote"
-              type="checkbox"
-              className="ml-[0.05rem] scale-110 accent-black"
-              defaultChecked={defaultValues.remote}
-            />
-            <Label htmlFor="remote">Remote jobs</Label>
+          <div className="flex w-full flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0 lg:justify-center">
+            <div className="flex items-center gap-1.5">
+              <input
+                id="remote"
+                name="remote"
+                type="checkbox"
+                className="ml-[0.05rem] scale-110 accent-black"
+                defaultChecked={defaultValues.remote}
+              />
+              <Label htmlFor="remote">Remote</Label>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <input
+                id="onsite"
+                name="onsite"
+                type="checkbox"
+                className="ml-[0.05rem] scale-110 accent-black"
+                defaultChecked={defaultValues.onsite}
+              />
+              <Label htmlFor="onsite">On-site</Label>
+            </div>
+            <div className="flex items-center gap-1.5">
+              <input
+                id="hybrid"
+                name="hybrid"
+                type="checkbox"
+                className="ml-[0.05rem] scale-110 accent-black"
+                defaultChecked={defaultValues.hybrid}
+              />
+              <Label htmlFor="hybrid">Hybrid</Label>
+            </div>
           </div>
-
           <FormSubmitButton className="w-full">Filter jobs</FormSubmitButton>
         </div>
       </form>
