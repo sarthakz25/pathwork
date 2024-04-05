@@ -1,4 +1,8 @@
-import Link from "next/link";
+import {
+  Popover,
+  PopoverTrigger,
+  PopoverContent,
+} from "@/components/ui/popover";
 
 export default function Footer() {
   return (
@@ -8,12 +12,31 @@ export default function Footer() {
           <p className="text-sm text-muted-foreground">
             Crafting Professional Paths
           </p>
-          <Link
-            href="/terms"
-            className="text-sm text-muted-foreground hover:underline"
-          >
-            Terms
-          </Link>
+          <Popover>
+            <PopoverTrigger>
+              <span className="text-sm text-muted-foreground hover:underline">
+                Terms
+              </span>
+            </PopoverTrigger>
+            <PopoverContent>
+              <div className="p-2.5 text-sm">
+                <p className="mb-1.5 font-medium text-primary/75">
+                  Welcome to Pathwork! By using our services, you agree to the
+                  following terms:
+                </p>
+                <ul className="space-y-1 font-normal text-primary/50">
+                  <li>
+                    No illegal, dangerous, or discriminatory job postings.
+                  </li>
+                  <li>We reserve the right to remove inappropriate content.</li>
+                  <li>
+                    Your data is secure, and we will not share it without
+                    permission.
+                  </li>
+                </ul>
+              </div>
+            </PopoverContent>
+          </Popover>
         </div>
         <div className="text-sm">
           <a

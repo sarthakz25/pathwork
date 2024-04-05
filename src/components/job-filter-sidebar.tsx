@@ -96,7 +96,7 @@ export default async function JobFilterSidebar({
                 id="remote"
                 name="remote"
                 type="checkbox"
-                className="ml-[0.05rem] scale-110 accent-black"
+                className="ml-[0.05rem] scale-110 accent-current"
                 defaultChecked={defaultValues.remote}
               />
               <Label htmlFor="remote">Remote</Label>
@@ -106,7 +106,7 @@ export default async function JobFilterSidebar({
                 id="onsite"
                 name="onsite"
                 type="checkbox"
-                className="ml-[0.05rem] scale-110 accent-black"
+                className="ml-[0.05rem] scale-110 accent-current"
                 defaultChecked={defaultValues.onsite}
               />
               <Label htmlFor="onsite">On-site</Label>
@@ -116,7 +116,7 @@ export default async function JobFilterSidebar({
                 id="hybrid"
                 name="hybrid"
                 type="checkbox"
-                className="ml-[0.05rem] scale-110 accent-black"
+                className="ml-[0.05rem] scale-110 accent-current"
                 defaultChecked={defaultValues.hybrid}
               />
               <Label htmlFor="hybrid">Hybrid</Label>

@@ -41,7 +41,7 @@ export default function JobDetailsPage({
               {applicationUrl ? (
                 <Link
                   href={new URL(applicationUrl).origin}
-                  className="text-purple-600 hover:text-purple-800 hover:underline"
+                  className="text-purple-600 hover:text-purple-800 hover:underline dark:text-purple-400 dark:hover:text-purple-300"
                 >
                   {companyName}
                 </Link>

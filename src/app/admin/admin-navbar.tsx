@@ -14,7 +14,7 @@ export default function AdminNavbar() {
       <div className="m-auto flex h-10 max-w-5xl items-center justify-between">
         <Link
           href="/admin"
-          className="bg-gradient-to-r from-indigo-600 to-purple-700 bg-clip-text font-bold text-transparent"
+          className="bg-gradient-to-r from-indigo-500 to-cyan-600 bg-clip-text font-bold text-transparent"
         >
           Admin
         </Link>

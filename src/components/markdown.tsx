@@ -14,7 +14,7 @@ export default function Markdown({ children }: MarkdownProps) {
         ),
         a: (props) => (
           <a
-            className="text-purple-600 underline hover:text-purple-800"
+            className="text-purple-600 underline hover:text-purple-800 dark:text-purple-400 dark:hover:text-purple-300"
             target="_blank"
             {...props}
           />
