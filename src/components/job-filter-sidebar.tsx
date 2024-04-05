@@ -48,7 +48,7 @@ export default async function JobFilterSidebar({
     )) as string[];
 
   return (
-    <aside className="top-5 h-fit rounded-lg border bg-background p-4 md:sticky md:w-[265px]">
+    <aside className="top-5 h-fit rounded-lg border bg-background p-4 md:sticky md:w-[275px]">
       <form action={filterJobs} key={JSON.stringify(defaultValues)}>
         <div className="space-y-5">
           <div className="flex flex-col gap-3">
@@ -90,8 +90,8 @@ export default async function JobFilterSidebar({
               ))}
             </Select>
           </div>
-          <div className="flex w-full flex-col space-y-2 md:flex-row md:space-x-2 md:space-y-0 lg:justify-center">
-            <div className="flex items-center gap-1.5">
+          <div className="flex w-full flex-col space-y-2 md:flex-row md:space-x-1 md:space-y-0 lg:justify-center">
+            <div className="flex items-center gap-1">
               <input
                 id="remote"
                 name="remote"
@@ -101,7 +101,7 @@ export default async function JobFilterSidebar({
               />
               <Label htmlFor="remote">Remote</Label>
             </div>
-            <div className="flex items-center gap-1.5">
+            <div className="flex items-center gap-1">
               <input
                 id="onsite"
                 name="onsite"
@@ -111,7 +111,7 @@ export default async function JobFilterSidebar({
               />
               <Label htmlFor="onsite">On-site</Label>
             </div>
-            <div className="flex items-center gap-1.5">
+            <div className="flex items-center gap-1">
               <input
                 id="hybrid"
                 name="hybrid"

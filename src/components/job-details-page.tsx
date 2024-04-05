@@ -65,7 +65,7 @@ export default function JobDetailsPage({
             </p>
             <p className="flex items-center gap-1.5">
               <Banknote size={16} className="shrink-0" />
-              {formatSalary(salary)}
+              {salary ? formatSalary(salary) : "N/A"}
             </p>
           </div>
         </div>
